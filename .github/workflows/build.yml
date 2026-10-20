@@ -24,6 +24,13 @@ jobs:
           unzip -o project.zip
           ls
 
+      - name: Betulkan OverlayService
+        run: |
+          f=app/src/main/java/com/aiisland/app/OverlayService.kt
+          sed -i 's/^import androidx.savedstate.ViewTreeSavedStateRegistryOwner$/import androidx.savedstate.setViewTreeSavedStateRegistryOwner/' $f
+          sed -i 's/ViewTreeSavedStateRegistryOwner.set(v, owner)/v.setViewTreeSavedStateRegistryOwner(owner)/' $f
+          grep -n "SavedStateRegistryOwner" $f
+
       - name: Terima lesen Android SDK
         run: |
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
