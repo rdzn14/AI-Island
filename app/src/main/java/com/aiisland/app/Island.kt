@@ -43,22 +43,23 @@ fun Island(phone: Phone) {
     val h by animateDpAsState(if (open) 76.dp else 38.dp, anim, label = "h")
     val r by animateDpAsState(if (open) 30.dp else 19.dp, anim, label = "r")
 
-        Box(
+    Box(
         Modifier
             .padding(12.dp)
             .size(w, h)
             .clip(RoundedCornerShape(r))
             .background(Color.Black)
-    .clickable {
-        haptic.performHapticb(HapticFeedbackType.LongPress)
-        open = !open
-    },
-
-
-        contentAlignment = Alignment.Center
-       ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
+            .clickable {
+                haptic.performHapticFeedback(HapticFeedbackType.LongPress)
+                open = !open
+            },
+        contentAlignment = if (open) Alignment.Center else Alignment.CenterStart
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(horizontal = if (open) 16.dp else 10.dp)
             Robot(mood, if (open) 48.dp else 28.dp, tilt = phone.tilt)
+
 
             if (mood == Mood.SLEEP && !open) {
                 Spacer(Modifier.width(6.dp))
