@@ -39,11 +39,10 @@ fun Island(phone: Phone) {
     val haptic = LocalHapticFeedback.current
     val mood = moodOf(phone)
     val anim = spring<Dp>(dampingRatio = 0.6f, stiffness = Spring.StiffnessMediumLow)
-    val w by animateDpAsState(if (open) 300.dp else 132.dp, anim, label = "w")
+    val w by animateDpAsState(if (open) 260.dp else 170.dp, anim, label = "w")
     val h by animateDpAsState(if (open) 76.dp else 38.dp, anim, label = "h")
     val r by animateDpAsState(if (open) 30.dp else 19.dp, anim, label = "r")
-
-     Box(
+    Box(
         Modifier
             .padding(12.dp)
             .size(w, h)
@@ -57,31 +56,29 @@ fun Island(phone: Phone) {
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = if (open) Arrangement.Center else Arrangement.Start,
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(horizontal = if (open) 16.dp else 12.dp)
         ) {
             Robot(mood, if (open) 48.dp else 28.dp, tilt = phone.tilt)
-            
-        if (mood == Mood.SLEEP && !open) {
-            Spacer(Modifier.width(6.dp))
-            val za by rememberInfiniteTransition(label = "z").animateFloat(
-                initialValue = 0.3f,
-                targetValue = 1f,
-                animationSpec = infiniteRepeatable(tween(1200), RepeatMode.Reverse),
-                label = "za"
-            )
-            Text(
-                "zZz",
-                color = Color(0xFF9AA3B2).copy(alpha = za),
-                fontSize = 13.sp,
-                maxLines = 1,
-                softWrap = false
-            )
-        }
 
-        if (!open) {
-            Spacer(modifier = Modifier.weight(1f))
+            if (mood == Mood.SLEEP && !open) {
+                Spacer(Modifier.width(6.dp))
+                val za by rememberInfiniteTransition(label = "z").animateFloat(
+                    initialValue = 0.3f,
+                    targetValue = 1f,
+                    animationSpec = infiniteRepeatable(tween(1200), RepeatMode.Reverse),
+                    label = "za"
+                )
+                Text(
+                    "zZz",
+                    color = Color(0xFF9AA3B2).copy(alpha = za),
+                    fontSize = 13.sp,
+                    maxLines = 1,
+                    softWrap = false
+                )
+            }
         }
             if (open) {
                 Spacer(Modifier.width(12.dp))
