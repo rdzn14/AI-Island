@@ -26,6 +26,11 @@ jobs:
           tar xzf projek.tgz
           ls
 
+      - name: Kunci tandatangan tetap
+        run: |
+          mkdir -p ~/.android
+          tr -d ' \r\n' < keystore.txt | base64 -d > ~/.android/debug.keystore
+
       - name: Terima lesen Android SDK
         run: |
           yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
@@ -38,3 +43,4 @@ jobs:
         with:
           name: AI-Island-APK
           path: app/build/outputs/apk/debug/app-debug.apk
+          
