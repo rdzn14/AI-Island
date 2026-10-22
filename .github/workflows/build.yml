@@ -24,6 +24,10 @@ jobs:
           ls
           cat part*.txt | tr -d ' \r\n' | base64 -d > projek.tgz
           tar xzf projek.tgz
+          if ls patch*.txt > /dev/null 2>&1; then
+            cat patch*.txt | tr -d ' \r\n' | base64 -d > tampal.tgz
+            tar xzf tampal.tgz
+          fi
           ls
 
       - name: Kunci tandatangan tetap
@@ -43,4 +47,3 @@ jobs:
         with:
           name: AI-Island-APK
           path: app/build/outputs/apk/debug/app-debug.apk
-          
