@@ -11,7 +11,7 @@
 - 🔔 **Clean Notification Hub:** Takes over system pop-ups for seamless, overlay-free notifications.
 - 📊 **Hardware Stats Dashboard:** Monitor Battery (with Temp), RAM, CPU, and GPU stats in real-time.
 - 🎛️ **Custom Island Positioning:** Adjust X/Y coordinates to perfectly fit any camera punch-hole layout.
-- 🎙️ **Voice Integration:** Ready for seamless AI assistant interactions.
+- 🎙️ **Voice Integration:** Ready for seamless AI assistant interactions and voice chat reply.
 
 ---
 
