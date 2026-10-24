@@ -1,4 +1,4 @@
-# 🤖 Mochi Dynamic Island (v0.4)
+# 🤖 Mochi Dynamic Island (v0.5)
 
 > **Transform your Android punch-hole into an interactive AI companion, live media controller, and system dashboard!**
 
@@ -26,7 +26,7 @@
 
 ## 🚀 Installation & Usage
 
-1. Download the latest `app-debug.apk` from the **Releases** section or Actions build artifact.
+1. Download the latest `Mochi-AI-Island.apk` from the **Releases** section or Actions build artifact.
 2. Install the APK on your Android device.
 3. Grant **Accessibility** and **Notification Access** permissions in the app settings.
 4. Customize your island offset via the **Setting** tab to align with your camera punch-hole!
